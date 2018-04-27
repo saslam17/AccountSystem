@@ -17,22 +17,23 @@ public class AccountDBRepository {
 	private EntityManager manager;
 	
 	
-	private Account find(Long id) {
-		return manager.find(Account.class, id);
+	public Account find(String accountId) {
+		return manager.find(Account.class, accountId);
 	}
 	
 	@Transactional(Transactional.TxType.REQUIRED)
-	private Account create(Account account) {
+	public Account create(Account account) {
 		manager.persist(account);
 		return account;
 	}
 	@Transactional(Transactional.TxType.REQUIRED)
-	private void delete(Long id) {
+	public void delete(String id) {
 		manager.remove(manager.getReference(Account.class, id));
 	}
 	
 	
 	public List<Account> findAll(){
+		
 		TypedQuery<Account> query = manager.createQuery("SELECT a FROM Account a order by a.accountNumber", Account.class);
 		return query.getResultList();
 	}

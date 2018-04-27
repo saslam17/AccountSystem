@@ -15,7 +15,17 @@
         <version.war.plugin>3.0.0</version.war.plugin>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Test -->
+        <version.junit>4.12</version.junit>
+        <version.arquillian>1.1.13.5</version.arquillian>
+        <version.arquillian.wildfly>2.0.2.Final</version.arquillian.wildfly>
+        <version.shrinkwrap>1.2.6</version.shrinkwrap>
+        <!-- Plugins -->
+        <version.surefire.plugin>2.19.1</version.surefire.plugin>
     </properties>
+    
 
     <dependencyManagement>
       <dependencies>
@@ -25,7 +35,15 @@
               <version>${version.jboss.bom}</version>
               <type>pom</type>
               <scope>import</scope>
+          
           </dependency>
+            <dependency>
+                <groupId>org.arquillian</groupId>
+                <artifactId>arquillian-universe</artifactId>
+                <version>${version.arquillian}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -107,8 +125,26 @@
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
     <version>4.12</version>
+    
 </dependency>
-
+   <dependency>
+            <groupId>org.arquillian.universe</groupId>
+            <artifactId>arquillian-junit</artifactId>
+            <scope>test</scope>
+            <type>pom</type>
+        </dependency>
+ <dependency>
+            <groupId>org.jboss.shrinkwrap</groupId>
+            <artifactId>shrinkwrap-api</artifactId>
+            <version>${version.shrinkwrap}</version>
+            <scope>test</scope>
+        </dependency>
+         <dependency>
+            <groupId>org.wildfly.arquillian</groupId>
+            <artifactId>wildfly-arquillian-container-remote</artifactId>
+            <version>${version.arquillian.wildfly}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>

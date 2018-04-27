@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Account {
 
 	@Id @GeneratedValue 
-	private Long id;
+	private String id;
 	
 	@Column(length = 10)
 	private String forename;
@@ -21,13 +21,24 @@ public class Account {
 	private String position;
 	
 	@Column(name = "account_number")
-	private Integer accountNumber;
+	private String accountNumber;
+	
+	public Account() {
+		
+	}
 
-	public Long getId() {
+		public Account(String id, String forename, String surname, String position, String accountNumber) {
+			this.id = id;
+			this.forename = forename;
+			this.surname = surname;
+			this.position = position;
+			this.accountNumber = accountNumber;
+		}
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -55,11 +66,11 @@ public class Account {
 		this.position = position;
 	}
 
-	public Integer getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber;
 	}
 
-	public void setAccountNumber(Integer accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
