@@ -5,7 +5,7 @@
 			 xsi:schemeLocation="http://xmlns.jcp.org/xml/ns/persistence 
 			 					http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 			 version="2.1">
-<persistence-unit name="accountManagementSystemPU">
+<persistence-unit name="accountSystemPU">
 <class>com.qa.persistence.domain.Account</class>
 <properties>
 	<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
