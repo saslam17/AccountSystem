@@ -37,7 +37,7 @@ public class AccountDBRepositoryTest {
 	
 	@Test(expected = Exception.class)
 	public void createInvaliAccount() {
-		Account account = new Account("id", "forename", "surname", "position", "accountNumber");
+		Account account = new Account("id", "forename", "surname", "accountNumber");
 		account = accountDBRepository.create(account);
 	}
 	
@@ -49,7 +49,7 @@ public class AccountDBRepositoryTest {
 		assertEquals(0, accountDBRepository.findAll().size());
 		
 		//Create an Account
-		Account account = new Account("id", "forename", "surname", "position", "accountNumber");
+		Account account = new Account("id", "forename", "surname", "accountNumber");
 		account = accountDBRepository.create(account);
 		String accountId = account.getId();
 		

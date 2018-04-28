@@ -22,8 +22,6 @@ public class Account {
 	@Column(length = 10)
 	private String surname;
 	
-	@Column(length = 10)
-	private String position;
 	
 	@Size (min = 1, max = 300)
 	@Column(name = "account_number")
@@ -33,11 +31,11 @@ public class Account {
 		
 	}
 
-		public Account(String id, String forename, String surname, String position, String accountNumber) {
+		public Account(String id, String forename, String surname, String accountNumber) {
 			this.id = id;
 			this.forename = forename;
 			this.surname = surname;
-			this.position = position;
+			
 			this.accountNumber = accountNumber;
 		}
 	public String getId() {
@@ -64,13 +62,10 @@ public class Account {
 		this.surname = surname;
 	}
 	
-	public String getPosition() {
-		return position;
-	}
+	
+	
 
-	public void setPosition(String position) {
-		this.position = position;
-	}
+	
 
 	public String getAccountNumber() {
 		return accountNumber;
@@ -82,8 +77,8 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", forename=" + forename + ", surname=" + surname + ", position=" + position
-				+ ", accountNumber=" + accountNumber + "]";
+		return "Account [id=" + id + ", forename=" + forename + ", surname=" + surname + 
+				", accountNumber=" + accountNumber + "]";
 	}
 
 	
