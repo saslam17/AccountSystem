@@ -9,17 +9,20 @@ import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 
+import org.apache.log4j.Logger;
+
 import com.qa.persistence.domain.Account;
 
 @Transactional(Transactional.TxType.SUPPORTS)
 public class AccountDBRepository {
+	private static final Logger LOGGER = Logger.getLogger(AccountDBRepository.class);
 	
 	@PersistenceContext(unitName = "accountSystemPU")
 	private EntityManager manager;
 	
 	
-	public Account find(@NotNull String accountId) {
-		return manager.find(Account.class, accountId);
+	public Account find(@NotNull String id) {
+		return manager.find(Account.class, id);
 	}
 	
 	@Transactional(Transactional.TxType.REQUIRED)
