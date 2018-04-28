@@ -26,7 +26,20 @@ public class AccountDBRepositoryTest {
 	private AccountDBRepository accountDBRepository;
 	//Test counting Accounts
 	
-
+	
+	@Test(expected = Exception.class)
+	public void findWithInvalidId(){
+		accountDBRepository.find(null);
+	}
+	
+	
+	
+	
+	@Test(expected = Exception.class)
+	public void createInvaliAccount() {
+		Account account = new Account("id", "forename", "surname", "position", "accountNumber");
+		account = accountDBRepository.create(account);
+	}
 	
 	
 	@Test

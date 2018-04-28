@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import javax.validation.constraints.NotNull;
 
 import com.qa.persistence.domain.Account;
 
@@ -17,17 +18,17 @@ public class AccountDBRepository {
 	private EntityManager manager;
 	
 	
-	public Account find(String accountId) {
+	public Account find(@NotNull String accountId) {
 		return manager.find(Account.class, accountId);
 	}
 	
 	@Transactional(Transactional.TxType.REQUIRED)
-	public Account create(Account account) {
+	public Account create(@NotNull Account account) {
 		manager.persist(account);
 		return account;
 	}
 	@Transactional(Transactional.TxType.REQUIRED)
-	public void delete(String id) {
+	public void delete(@NotNull String id) {
 		manager.remove(manager.getReference(Account.class, id));
 	}
 	
